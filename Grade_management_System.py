@@ -26,4 +26,14 @@ def AddStudent():
     while marks < 0 or marks > 100:
         marks = int(input("You entered a wrong value. Enter marks of student: "))
     student = Student(name, marks)
+    fileHandle = open("Grades.txt", "a")
+    fileHandle.write(f"{name} got {marks}\n")
+    fileHandle.close()
     StudentInfo.append(student)
+    
+#Main Program
+AddStudent()
+AddStudent()
+CalcAvg()
+for i in range(len(StudentInfo)):
+    print(StudentInfo[i], StudentInfo[i].getStudentName(), StudentInfo[i].getStudentMarks())
