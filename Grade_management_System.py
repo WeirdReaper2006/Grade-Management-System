@@ -11,7 +11,14 @@ class Student:
     def getStudentMarks(self):
         return self.__marks
     
-        
+def ValidateName(name):
+    retVal = True
+    allowed_characters = list("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ ")
+    for char in str(name):
+        if char not in allowed_characters:
+            retVal = False
+    return retVal
+
 def CalcAvg():
     total = 0
     count = 0
@@ -22,6 +29,8 @@ def CalcAvg():
     
 def AddStudent():
     name = str(input("Enter name of student: "))
+    while ValidateName(name) == False:
+        name = str(input("You have entered a wrong value. Enter name of student again: "))
     marks = int(input("Enter marks of student: "))
     while marks < 0 or marks > 100:
         marks = int(input("You entered a wrong value. Enter marks of student: "))
