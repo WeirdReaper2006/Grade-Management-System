@@ -23,6 +23,17 @@ class Student:
         retVal = f"{self.__name} with student ID {self.__ID} got {self.__marks} marks"
         return retVal
     
+def CalcAvg():
+    total = 0
+    count = 0
+    try:
+        for i in StudentInfo:
+            total += i.getStudentMarks()
+            count += 1
+        print (total/count)
+    except ZeroDivisionError:
+        print("There are no students")
+
 def ValidateName(name):
     retVal = True
     allowed_characters = list("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ ")
@@ -30,14 +41,6 @@ def ValidateName(name):
         if char not in allowed_characters:
             retVal = False
     return retVal
-
-def CalcAvg():
-    total = 0
-    count = 0
-    for i in StudentInfo:
-        total += i.getStudentMarks()
-        count += 1
-    print (total/count)
     
 def AddStudent():
     global existing_student_ids
