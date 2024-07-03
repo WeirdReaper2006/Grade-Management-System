@@ -19,10 +19,6 @@ class Student:
     def getStudentMarks(self):
         return self.__marks
     
-    def getStudentDetails(self):
-        retVal = f"{self.__name} with student ID {self.__ID} got {self.__marks} marks"
-        return retVal
-    
 def CalcAvg():
     total = 0
     count = 0
@@ -66,9 +62,14 @@ def AddStudent():
     fileHandle2.close()
     StudentInfo.append(student)
     
+def ReadFile():
+    fileHandle = open ("Grades.txt", "r")
+    for i in fileHandle.readlines():
+        print(i)
+    fileHandle.close()
+    
 #Main Program
 AddStudent()
 AddStudent()
 CalcAvg()
-for i in range(len(StudentInfo)):
-    print(StudentInfo[i].getStudentDetails())
+ReadFile()
