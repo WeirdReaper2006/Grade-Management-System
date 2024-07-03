@@ -4,22 +4,22 @@ filehandle = open("IDs.txt", "r")
 for i in filehandle.readlines():
     existing_student_ids.add(int(i.strip()))
 
-class Student:
-    def __init__(self, id, n, m):
-        self.__ID = int(id)
-        self.__name = str(n)
-        self.__marks = int(m)
+class Student:   #Class declaration
+    def __init__(self, id, n, m):    #Class initialisation
+        self.__ID = int(id)   #Student ID
+        self.__name = str(n)  #Student Name
+        self.__marks = int(m) #Student Marks
         
     def getStudentID(self):
-        return self.__ID
+        return self.__ID      #Retrieve student ID
         
     def getStudentName(self):
-        return self.__name
+        return self.__name    #Retrieve student name
     
     def getStudentMarks(self):
-        return self.__marks
+        return self.__marks   #Retrieve student marks
     
-def CalcAvg():
+def CalcAvg():    #Function for calculating average
     total = 0
     count = 0
     try:
@@ -30,7 +30,7 @@ def CalcAvg():
     except ZeroDivisionError:
         print("There are no students")
 
-def ValidateName(name):
+def ValidateName(name):     #Validates name to make sure that name does not have special characters
     retVal = True
     allowed_characters = list("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ ")
     for char in str(name):
@@ -38,7 +38,7 @@ def ValidateName(name):
             retVal = False
     return retVal
     
-def AddStudent():
+def AddStudent():       #Function that adds student
     global existing_student_ids
     id = int(input("Enter Student ID: "))
     while id < 1 or id in existing_student_ids:
@@ -62,7 +62,7 @@ def AddStudent():
     fileHandle2.close()
     StudentInfo.append(student)
     
-def ReadFile():
+def ReadFile():    #Function that reads from file to see which students have been added
     fileHandle = open ("Grades.txt", "r")
     for i in fileHandle.readlines():
         print(i)
