@@ -13,7 +13,7 @@ def validInput(userIn):
 def sort():
     global Stu_DB
     Stu_DB = readfile('myfile.txt')
-    for i in range(1, len(Stu_DB)):
+    for i in range(1, len(Stu_DB)): #insertion sort
         key = Stu_DB[i]
         place = i - 1
         while place >= 0 and key['Average'] > Stu_DB[place]['Average']:
@@ -35,7 +35,7 @@ def writeFile(Dictionary):
 def readfile(myfile):
     global Stu_DB
     Stu_DB = []
-    with open(myfile, 'r') as filehandle:
+    with open(myfile, 'r') as filehandle: #opening file
         lines = filehandle.readlines()
         for line in lines:
             if line.strip(): #checks if line is empty or not
@@ -45,7 +45,7 @@ def readfile(myfile):
 
 
 def AddStu():
-    stuN = input('Enter Name: ')
+    stuN = input('Enter Name: ') #inputs student
     while not stuN.isalpha():
         stuN = input('Invalid input. Enter a student name: ')
 
